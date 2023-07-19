@@ -190,7 +190,7 @@ const ListButtons = styled.div`
   height: 1.5rem;
   padding: 0.25rem;
   border-radius: 10px;
-  display: flex;
+  
   align-items: center;
   transition: 0.5s all ease;
   &:hover {
