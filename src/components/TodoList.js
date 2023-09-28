@@ -43,39 +43,41 @@ const TodoList = ({ mode }) => {
           type="text"
           className={mode ? "darkmode" : "lightmode"}
         />
-        <InputButtons
-          onClick={handleAddTodo}
-          style={{ backgroundColor: "#008000" }}
-        >
-          <FaPlus
-            style={{
-              backgroundColor: "transparent",
-              width: "70%",
-              height: "70%",
-            }}
-          />
-        </InputButtons>
-        <InputButtons onClick={DeleteInput} style={{ backgroundColor: "grey" }}>
-          <FaBackspace
-            style={{
-              backgroundColor: "transparent",
-              width: "70%",
-              height: "70%",
-            }}
-          />
-        </InputButtons>
-        <InputButtons
-          onClick={ClearHandler}
-          style={{ backgroundColor: "#867e36" }}
-        >
-          <FaBroom
-            style={{
-              backgroundColor: "transparent",
-              width: "70%",
-              height: "70%",
-            }}
-          />
-        </InputButtons>
+        <IconDiv>
+          <InputButtons
+              onClick={handleAddTodo}
+              style={{ backgroundColor: "#008000" }}
+          >
+            <FaPlus
+                style={{
+                  backgroundColor: "transparent",
+                  width: "70%",
+                  height: "70%",
+                }}
+            />
+          </InputButtons>
+          <InputButtons onClick={DeleteInput} style={{ backgroundColor: "grey" }}>
+            <FaBackspace
+                style={{
+                  backgroundColor: "transparent",
+                  width: "70%",
+                  height: "70%",
+                }}
+            />
+          </InputButtons>
+          <InputButtons
+              onClick={ClearHandler}
+              style={{ backgroundColor: "#867e36" }}
+          >
+            <FaBroom
+                style={{
+                  backgroundColor: "transparent",
+                  width: "70%",
+                  height: "70%",
+                }}
+            />
+          </InputButtons>
+        </IconDiv>
       </StyledHeader>
       <div className="list-div">
         <StyledTaskList className={mode ? "darkmode" : "lightmode"}>
@@ -115,10 +117,15 @@ const TodoList = ({ mode }) => {
 };
 
 const TaskDetails = styled.div`
-  display: block;
+  font-family: sans-serif;
+  font-weight: lighter;
   width: 90%;
   display: flex;
   align-items: center;
+`;
+
+const IconDiv = styled.div`
+  display: flex;
 `;
 
 const ListBtn = styled.div`
@@ -179,7 +186,7 @@ const InputButtons = styled.div`
     }
   }
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 92vw;
+    flex: 1;
   }
 `;
 
@@ -190,14 +197,15 @@ const ListButtons = styled.div`
   height: 1.5rem;
   padding: 0.25rem;
   border-radius: 10px;
-  
   align-items: center;
   transition: 0.5s all ease;
+
   &:hover {
     animation: shake infinite linear 1s;
     cursor: pointer;
     color: ghostwhite;
   }
+
   @keyframes shake {
     0% {
       transform: rotate(2deg);
@@ -215,6 +223,7 @@ const ListButtons = styled.div`
       transform: rotate(2deg);
     }
   }
+
   .trash-icon {
   }
 `;

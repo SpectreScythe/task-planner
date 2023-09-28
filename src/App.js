@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import TodoList from "./components/TodoList";
-import { FaMoon, FaSun } from "react-icons/fa";
+import {FaMoon, FaSun} from "react-icons/fa";
 import styled from "styled-components";
 import "./styles/styles.css";
 
 function App() {
-  const [mode, setMode] = useState(false);
-  const themeHandler = () => {
-    setMode(!mode);
-  };
+    const [mode, setMode] = useState(false);
+    const themeHandler = () => {
+        setMode(!mode);
+    };
 
-  return (
-    <StyledApp
-      className={mode ? "darkmode" : "lightmode"}
-      style={{ height: "100vh", transition: "0.5s all ease" }}
-    >
-      <StyledTitle className={mode ? "darkmode" : "lightmode"}>
-        <h1>Task Planner</h1>
-        <div onClick={themeHandler}>
-          {mode ? (
-            <FaMoon style={{ width: "3rem", height: "3rem" }} />
-          ) : (
-            <FaSun style={{ width: "3rem", height: "3rem" }} />
-          )}
-        </div>
-      </StyledTitle>
-      <TodoList mode={mode} className={mode ? "darkmode" : "lightmode"} />
-    </StyledApp>
-  );
+    return (
+        <StyledApp
+            className={mode ? "darkmode" : "lightmode"}
+            style={{height: "100vh", transition: "0.5s all ease"}}
+        >
+            <StyledTitle className={mode ? "darkmode" : "lightmode"}>
+                <h1>Task Planner</h1>
+                <div onClick={themeHandler}>
+                    {mode ? (
+                        <FaMoon style={{width: "3rem", height: "3rem"}}/>
+                    ) : (
+                        <FaSun style={{width: "3rem", height: "3rem"}}/>
+                    )}
+                </div>
+            </StyledTitle>
+            <TodoList mode={mode} className={mode ? "darkmode" : "lightmode"}/>
+        </StyledApp>
+    );
 }
 
 const StyledApp = styled.div`
@@ -49,9 +49,11 @@ const StyledTitle = styled.div`
       width: 63%;
     }
   }
+
   div {
     cursor: pointer;
   }
+
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
     margin: 0;
     padding: 0;
@@ -63,6 +65,7 @@ const StyledTitle = styled.div`
       width: 100vw;
       margin-bottom: 3rem;
     }
+
     div {
       width: 100%;
       margin: auto auto;
